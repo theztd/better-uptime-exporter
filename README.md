@@ -1,3 +1,5 @@
+[![Release Go project](https://github.com/theztd/better-uptime-exporter/actions/workflows/release.yml/badge.svg)](https://github.com/theztd/better-uptime-exporter/actions/workflows/release.yml)
+
 # BetterUptime gather
 
 Gather endpoint status from better uptime and convert them to influxdb2/prometheus
