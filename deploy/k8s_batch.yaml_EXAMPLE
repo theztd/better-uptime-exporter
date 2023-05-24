@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: bup-woltair
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    metadata:
+      name: bup-woltair
+    spec:
+      template:
+        spec:
+          containers:
+          - name: better-uptime
+            image: ghcr.io/theztd/better-uptime-exporter:main
+            imagePullPolicy: IfNotPresent
+            command:
+            - /usr/local/bin/bup
+            - -influx
+            env:
+            - name: BUP_TOKEN
+              value: ""
+            - name: INFLUX_TOKEN
+              value: ""
+            - name: INFLUX_URL
+              value: ""
+            - name: INFLUX_ORG
+              value: ""
+            - name: INFLUX_BUCKET
+              value: ""
+          restartPolicy: OnFailure
